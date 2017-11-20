@@ -225,7 +225,7 @@ function onWindowResize () {
  */
 function onClick ( e ) {
   
-  console.log(e);
+  //console.log(e);
   
   // If we don't have a touches object, abort
   // TODO: is this necessary?
@@ -245,6 +245,7 @@ function onClick ( e ) {
 
   // If a hit is found, just use the first one
   if (hits && hits.length) {
+    console.log(hits);
     var hit = hits[0];
     // Use the `placeObjectAtHit` utility to position
     // the cube where the hit occurred
