@@ -166,6 +166,8 @@ function init() {
   }
   var material = new THREE.MeshBasicMaterial({ vertexColors: THREE.VertexColors });
   cube = new THREE.Mesh(geometry, material);
+  
+  
 
   // Bind our event handlers
   window.addEventListener('resize', onWindowResize, false);
@@ -247,9 +249,12 @@ function onClick ( e ) {
   if (hits && hits.length) {
     console.log(hits);
     var hit = hits[0];
+    var kockica = cube.clone();
+    scene.remove(scene.children[scene.children.length-1]);
+    scene.add( kockica);
     // Use the `placeObjectAtHit` utility to position
     // the cube where the hit occurred
-    THREE.ARUtils.placeObjectAtHit(cube,  // The object to place
+    THREE.ARUtils.placeObjectAtHit(kockica,  // The object to place
                                    hit,   // The VRHit object to move the cube to
                                    1,     // Easing value from 0 to 1; we want to move
                                           // the cube directly to the hit position
