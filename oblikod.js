@@ -266,6 +266,15 @@ function bindButtons() {
   next.onclick = function () {
     nextObj();
   };
+  
+  var arlink = document.getElementById('arlink');
+  arlink.onclick = function () { 
+    arlink.href = arlink.href 
+      + "?N=" + objects[0].parameters.sides.v 
+      + "&R=" + objects[0].parameters.radius.v 
+      + "&H=" + objects[0].parameters.height.v ;
+  };
+  
 }
 
 function setMaterial(mat) {}
