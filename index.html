@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>OBLIKOD</title>
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+  <link rel="stylesheet" href="/bootstrap.css">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/vendor.js"></script>
+  <script src="/app.js"></script>
+  
+</head>
+
+<body>
+
+  <div id="topbar" style="height:50px;"> oblikod 
+
+    <a href="./oblikodAR.html" class="toplink"> AR </a>
+    
+    <span id="nextObj"  class="noselect"> next </span> 
+    <span id="prevObj"  class="noselect"> prev </span>
+
+  </div>
+
+  <div id="world" style="height: 50vh"> </div>
+
+  <!-- TABS -->
+
+  <div id="tabs">
+
+      <ul class="nav nav-pills ">
+        <li class="nav-item">
+          <a href="#controls" role="tab" data-toggle="tab" class="nav-link active" aria-expanded="true">Geometry</a>
+        </li>
+        <li class="nav-item">
+          <a href="#materials" role="tab" data-toggle="tab" class="nav-link" aria-expanded="false">Material</a>
+        </li>
+      </ul>
+
+      <div class="tab-content pl-3" style="height: 35vh; position: relative">
+
+        <div role="tabpanel" class="tab-pane fade active show" id="controls" aria-expanded="true">
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="materials" aria-expanded="false">
+          <div class="row ">
+
+            <input class="matCircle" src="img/1.jpg" onclick="changeMat(0)" type="image">
+
+
+            <input class="matCircle" src="img/2.jpg" onclick="changeMat(1)" type="image">
+
+
+            <input class="matCircle" src="img/3.jpg" onclick="changeMat(2)" type="image">
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  <!--  -->
+
+
+  <div id="debug"></div>
+
+  <!-- Bootstrap needed js libs-->
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <script>
+  function changeMat( id ){
+    INIT.glview.changeMat (id) ;
+  }
+
+  </script>
+
+</body>
