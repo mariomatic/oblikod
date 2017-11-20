@@ -356,6 +356,8 @@
             mGrupa.add( light );
             
             var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.MeshBasicMaterial({opacity:0.5}) );
+            tlo.rotateX(Math.PI);
+            tlo.position.z=-H-D;
             tlo.receiveShadow = true;
             mGrupa.add(tlo);
                                                                                                                                                                                                
