@@ -347,7 +347,16 @@
             mGrupa.translateZ(-H - D);
 
             mGrupa.castShadow = true;
-
+            
+            var light= new THREE.PointLight ( 0xefefef, 0.8,3,1);
+            light.position.z=2;
+            light.castShadow=true;
+            mGrupa.add( light );
+            
+            var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.ShadowMaterial({opacity:0.5));
+            tlo.receiveShadow = true;
+            mGrupa.add(tlo);
+                                                                                                                                                                                               
             model = mGrupa;
 
             scene.add(model);
