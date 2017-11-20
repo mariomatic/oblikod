@@ -224,37 +224,34 @@ function onWindowResize () {
  * current position.
  */
 function onClick () {
-  // Fetch the pose data from the current frame
-  var pose = vrFrameData.pose;
+  // If we don't have a touches object, abort
+  // TODO: is this necessary?
+  if (!e.touches[0]) {
+    return;
+  }
 
-  // Convert the pose orientation and position into
-  // THREE.Quaternion and THREE.Vector3 respectively
-  var ori = new THREE.Quaternion(
-    pose.orientation[0],
-    pose.orientation[1],
-    pose.orientation[2],
-    pose.orientation[3]
-  );
+  // Inspect the event object and generate normalize screen coordinates
+  // (between 0 and 1) for the screen position.
+  var x = e.touches[0].pageX / window.innerWidth;
+  var y = e.touches[0].pageY / window.innerHeight;
 
-  var pos = new THREE.Vector3(
-    pose.position[0],
-    pose.position[1],
-    pose.position[2]
-  );
+  // Send a ray from the point of click to the real world surface
+  // and attempt to find a hit. `hitTest` returns an array of potential
+  // hits.
+  var hits = vrDisplay.hitTest(x, y);
 
-  var dirMtx = new THREE.Matrix4();
-  dirMtx.makeRotationFromQuaternion(ori);
+  // If a hit is found, just use the first one
+  if (hits && hits.length) {
+    var hit = hits[0];
+    // Use the `placeObjectAtHit` utility to position
+    // the cube where the hit occurred
+    THREE.ARUtils.placeObjectAtHit(cube.clone(),  // The object to place
+                                   hit,   // The VRHit object to move the cube to
+                                   1,     // Easing value from 0 to 1; we want to move
+                                          // the cube directly to the hit position
+                                   true); // Whether or not we also apply orientation
 
-  var push = new THREE.Vector3(0, 0, -1.0);
-  push.transformDirection(dirMtx);
-  pos.addScaledVector(push, 0.125);
-
-  // Clone our cube object and place it at the camera's
-  // current position
-  var clone = cube.clone();
-  scene.add(clone);
-  clone.position.copy(pos);
-  clone.quaternion.copy(ori);
+  }
 }
 </script>
 </body>
