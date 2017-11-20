@@ -357,7 +357,7 @@
             light.castShadow=true;
             mGrupa.add( light );
             
-            var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.MeshLambertMaterial({transparent:true,opacity:0.5}) );
+            var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.ShadowMaterial() );
             tlo.rotateX(Math.PI);
             tlo.position.z=H+D;
             tlo.receiveShadow = true;
