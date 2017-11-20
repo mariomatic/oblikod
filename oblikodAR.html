@@ -103,6 +103,7 @@
         var H = parseFloat(getQueryVariable("H")) || 0.4;
         var R = parseFloat(getQueryVariable("R")) || 0.6;
         var D = 0.02;
+        var mat = parseInt(getQueryVariable("mat")) || 1;
 
         var changed = true;
 
@@ -265,7 +266,7 @@
             var textureLoader = new THREE.TextureLoader();
             var material = new THREE.MeshLambertMaterial({ wireframe: false });
 
-            var texture = textureLoader.load("./img/1.jpg");
+            var texture = textureLoader.load("./img/"+mat+".jpg");
             texture.wrapS = THREE.RepeatWrapping;
             texture.wrapT = THREE.RepeatWrapping;
             texture.repeat.set(1, 1);
@@ -354,7 +355,7 @@
             light.castShadow=true;
             mGrupa.add( light );
             
-            var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.ShadowMaterial({opacity:0.5}) );
+            var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.MeshBasicMaterial({opacity:0.5}) );
             tlo.receiveShadow = true;
             mGrupa.add(tlo);
                                                                                                                                                                                                
