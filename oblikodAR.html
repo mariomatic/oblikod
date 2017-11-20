@@ -350,12 +350,12 @@
 
             mGrupa.castShadow = true;
             
-            var light= new THREE.PointLight ( 0xefefef, 0.8,3,1);
-            light.position.z=-2.3;
+            var light= new THREE.PointLight ( 0xefefef, 0.8,4,2);
+            light.position.z= - 2;
             light.castShadow=true;
             mGrupa.add( light );
             
-            var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.MeshBasicMaterial({transparent:true,opacity:0.5}) );
+            var tlo= new THREE.Mesh( new THREE.PlaneGeometry(3,3,3,3), new THREE.MeshLambertMaterial({transparent:true,opacity:0.5}) );
             tlo.rotateX(Math.PI);
             tlo.position.z=H+D;
             tlo.receiveShadow = true;
