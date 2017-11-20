@@ -224,6 +224,9 @@ function onWindowResize () {
  * current position.
  */
 function onClick ( e ) {
+  
+  console.log(e);
+  
   // If we don't have a touches object, abort
   // TODO: is this necessary?
   if (!e.touches[0]) {
