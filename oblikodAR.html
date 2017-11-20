@@ -153,6 +153,8 @@
             console.log('setRenderer size', window.innerWidth, window.innerHeight);
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.autoClear = false;
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap; 
             canvas = renderer.domElement;
             document.body.appendChild(canvas);
             scene = new THREE.Scene();
