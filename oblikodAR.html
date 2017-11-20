@@ -101,7 +101,7 @@
 
         var N = getQueryVariable(N) || 5;
         var H = getQueryVariable(H) || 0.35;
-        var R = getQueryVariable(R) || 0.8;
+        var R = getQueryVariable(R) || 0.25;
         var D = 0.02;
 
         var changed = true;
@@ -342,7 +342,7 @@
 
             }
 
-            mGrupa.rotateX(Math.PI / 2);
+            //mGrupa.rotateX(Math.PI / 2);
             mGrupa.translateZ(-H - D);
 
             mGrupa.castShadow = true;
